@@ -1,0 +1,33 @@
+
+<Stadium>
+	<StadiumName>Dunedin Ice Hockey Stadium</StadiumName>
+	<width>60</width>
+	<height>30</height>
+	<BaseStations>
+		<BaseStation>
+			<X>0</X>
+			<Y>0</Y>
+			<ID>1</ID>
+			<IP>192.168.1.5</IP>
+		</BaseStation>
+		<BaseStation>
+			<X>12</X>
+			<Y>0</Y>
+			<ID>2</ID>
+			<IP>192.168.1.6</IP>
+		</BaseStation>
+		<BaseStation>
+			<X>12</X>
+			<Y>9</Y>
+			<ID>3</ID>
+			<IP>192.168.1.7</IP>
+		</BaseStation>
+		<BaseStation>
+			<X>0</X>
+			<Y>9</Y>
+			<ID>4</ID>
+			<IP>192.168.1.8</IP>
+		</BaseStation>				
+	</BaseStations>
+</Stadium>
+
