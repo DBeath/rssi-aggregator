@@ -3,8 +3,6 @@
 from collections import deque
 import string
 
-dataLists = {}
-
 
 class DataString():
 
@@ -16,11 +14,13 @@ class DataString():
 
 class DataDealer():
 
+    dataLists = {}
+
     def __init__(self, ID):
-        if ID in dataLists:
+        if ID in self.dataLists:
             pass
         else:
-            dataLists[ID] = deque()
+            self.dataLists[ID] = deque()
             #dataLists[ID] = deque(maxlen=100)
         #import pdb; pdb.set_trace()
 
@@ -33,7 +33,7 @@ class DataDealer():
         if len(s) == 3:
             d = DataString(s[0], s[1], s[2])
 
-            dataLists[ID].append(d)
+            self.dataLists[ID].append(d)
         #import pdb; pdb.set_trace()
 
     def pull_data(self, ID):
@@ -44,9 +44,9 @@ class DataDealer():
         """
 
         data = []
-        if ID in dataLists:
-            data.extend(dataLists[ID])
-            dataLists[ID].clear()
+        if ID in self.dataLists:
+            data.extend(self.dataLists[ID])
+            self.dataLists[ID].clear()
             #for i in dataLists[ID]:
                 #data.append(dataLists[ID].pop())
 

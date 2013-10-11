@@ -1,8 +1,8 @@
 
-from DataDealer import DataDealer
-from Calculations import Circle, CleanedCircle
-from Calculations import find_position
-from RadiiCleaner import clean_circles
+from datadealer import DataDealer
+from calculations import Circle, CleanedCircle
+from calculations import find_position
+from radiicleaner import clean_circles
 
 
 class Tag():
@@ -121,11 +121,3 @@ class CalcPosition():
 
         for tag in data:
             self.output.write(tag)
-
-
-
-
-
-
-
-

@@ -1,4 +1,3 @@
-
 import csv
 from datetime import datetime
 
@@ -17,10 +16,8 @@ class CsvOutput():
         timestamp = t.strftime("%Y:%m:%d:%H:%M:%S:%f")
         self.csvwriter.writerow([tag.x, tag.y, tag.ID, timestamp])
         #self.textfile.writerow([self.line, tag.x, tag.y, tag.ID, timestamp])
-        
+
         self.csvfile.close()
         self.csvfile.flush()
-        
+
         print tag.x, tag.y, tag.ID, timestamp
-
-

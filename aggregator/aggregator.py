@@ -4,12 +4,13 @@ from twisted.internet.protocol import ProcessProtocol
 from twisted.protocols.basic import LineReceiver
 from twisted.internet.task import LoopingCall
 
-from DataDealer import DataDealer
-from Config import get_config
-from CalcPosition import CalcPosition
-from Output import CsvOutput
+from datadealer import DataDealer
+from config import get_config
+from calcposition import CalcPosition
+from output import CsvOutput
 from datetime import datetime
 import csv
+
 
 class Calculator(ProcessProtocol):
 
@@ -21,10 +22,10 @@ class Calculator(ProcessProtocol):
 
     def start_calc(self):
         self.calc.start_calc()
-	self.csvfile = open(self.outputfile, "ab")
+        self.csvfile = open(self.outputfile, "ab")
         self.csvwriter = csv.writer(self.csvfile, dialect="excel")
-	self.csvwriter.writerow([10, 20, "D202"])
-	self.csvfile.close()
+        self.csvwriter.writerow([10, 20, "D202"])
+        self.csvfile.close()
         print 'Calculation Started.'
 
 
@@ -72,13 +73,13 @@ class BaseStationFactory(ReconnectingClientFactory):
 
     def clientConnectionLost(self, transport, reason):
         print 'Lost connection.  Reason:', reason
-        ReconnectingClientFactory.clientConnectionLost(self, transport, reason)
+        ReconnectingClientFactory.clientConnectionLost(self, transport,
+                                                        reason)
 
     def clientConnectionFailed(self, transport, reason):
         print 'Failed connection to ', self.ID, '.  Reason:', reason
-        ReconnectingClientFactory.clientConnectionFailed(self, transport,
-            reason)
-
+        ReconnectingClientFactory.clientConnectionFailed(self,
+                                                    transport, reason)
 
 if __name__ == "__main__":
     port = 84
@@ -90,7 +91,5 @@ if __name__ == "__main__":
 
     for bs in stations:
         #print("1. ready to connect to %s" % address)
-        reactor.connectTCP(bs.IP, port,
-            BaseStationFactory(bs), 15)
+        reactor.connectTCP(bs.IP, port, BaseStationFactory(bs), 15)
     reactor.run()
-

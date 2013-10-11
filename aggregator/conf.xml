@@ -1,4 +1,15 @@
+<!-- 
+Example XML configuration file.
 
+Width and Height are in meters.
+
+X and Y are are distance in meters from "top-left" corner of field.
+
+ID is the unique identifier of the Base Station.
+
+IP is the set IP Address of the Base Station.
+
+ -->
 <Stadium>
 	<StadiumName>Dunedin Ice Hockey Stadium</StadiumName>
 	<width>60</width>
